@@ -46,7 +46,7 @@ def start_router_profiler_server(args, profiler_cmd_queue: RouterProfilerCmdQueu
     server = ThreadedServer(
         RouterProfilerService(profiler_cmd_queue),
         port=router_profiler_port,
-        protocol_config={"allow_pickle": True},
+        protocol_config={"allow_pickle": False},
     )
     thread = threading.Thread(target=server.start, daemon=True)
     thread.start()
